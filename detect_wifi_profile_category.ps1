@@ -1,13 +1,12 @@
-﻿# Detect if Vejessiens Wifi is public or private and highlight
+﻿# Detect if Wifi is public or private and highlight
 # MUbashir Javaid
-# 29 August, 2023
 # Exit code 0 = configuration is correct.
 # Exit code 1 = configuration is incorrect, trigger remediation script.
 
 $ErrorActionPreference = "SilentlyContinue"
 try
 {
-    $NetworkCategory = Get-NetConnectionProfile -Name "Vejessiens" | select NetworkCategory 
+    $NetworkCategory = Get-NetConnectionProfile -Name "WifiName" | select NetworkCategory 
     Write-Output $NetworkCategory.NetworkCategory
 
     if($NetworkCategory.NetworkCategory -eq "Public") 
